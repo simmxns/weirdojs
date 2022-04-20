@@ -1,8 +1,8 @@
-import { HttpContext } from "@adonisjs/core/build/standalone";
+import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 
-export default class PostControllers {
-  async addPlayer (ctx: HttpContext) {
-    ctx.response.status(200)
+export default class GetControllers {
+  async addPlayer ({ response }: HttpContextContract) {
+    response.status(200)
     return {
       success: true,
       data: {}
