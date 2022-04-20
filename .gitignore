@@ -3,9 +3,11 @@ build
 coverage
 .vscode
 .DS_STORE
-.env
 tmp
-# MacOS
+.env
+.env.development
+.env.production
+.env.testing
 .DS_Store
 ._*
 Thumbs.db

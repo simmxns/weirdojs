@@ -22,10 +22,13 @@
   ],
   "providers": [
     "./providers/AppProvider",
-    "@adonisjs/core"
+    "@adonisjs/core",
+    "lucid-mongo/providers/LucidMongoProvider",
+    "@zakodium/adonis-mongodb"
   ],
   "aceProviders": [
-    "@adonisjs/repl"
+    "@adonisjs/repl",
+    "@adonisjs/lucid/providers/MigrationsProvider"
   ],
   "tests": {
     "suites": [
