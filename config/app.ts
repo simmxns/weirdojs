@@ -5,12 +5,12 @@
  * file.
  */
 
-import proxyAddr from 'proxy-addr'
-import Env from '@ioc:Adonis/Core/Env'
-import { ServerConfig } from '@ioc:Adonis/Core/Server'
-import { LoggerConfig } from '@ioc:Adonis/Core/Logger'
-import { ProfilerConfig } from '@ioc:Adonis/Core/Profiler'
-import { ValidatorConfig } from '@ioc:Adonis/Core/Validator'
+import proxyAddr from 'proxy-addr';
+import Env from '@ioc:Adonis/Core/Env';
+import { ServerConfig } from '@ioc:Adonis/Core/Server';
+import { LoggerConfig } from '@ioc:Adonis/Core/Logger';
+import { ProfilerConfig } from '@ioc:Adonis/Core/Profiler';
+import { ValidatorConfig } from '@ioc:Adonis/Core/Validator';
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ import { ValidatorConfig } from '@ioc:Adonis/Core/Validator'
 | be decrypted.
 |
 */
-export const appKey: string = Env.get('APP_KEY')
+export const appKey: string = Env.get('APP_KEY');
 
 /*
 |--------------------------------------------------------------------------
@@ -107,7 +107,7 @@ export const http: ServerConfig = {
     maxAge: '2h',
     httpOnly: true,
     secure: false,
-    sameSite: false,
+    sameSite: false
   },
 
   /*
@@ -126,8 +126,8 @@ export const http: ServerConfig = {
   | client to set the header explicitly.
   |
   */
-  forceContentNegotiationTo: 'application/json',
-}
+  forceContentNegotiationTo: 'application/json'
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -180,8 +180,8 @@ export const logger: LoggerConfig = {
   | can have huge impact on performance.
   |
   */
-  prettyPrint: Env.get('NODE_ENV') === 'development',
-}
+  prettyPrint: Env.get('NODE_ENV') === 'development'
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -219,8 +219,8 @@ export const profiler: ProfilerConfig = {
   | the profiler. When whitelist is defined, then `blacklist` is ignored.
   |
   */
-  whitelist: [],
-}
+  whitelist: []
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -231,5 +231,4 @@ export const profiler: ProfilerConfig = {
 | to the default config https://git.io/JT0WE
 |
 */
-export const validator: ValidatorConfig = {
-}
+export const validator: ValidatorConfig = {};

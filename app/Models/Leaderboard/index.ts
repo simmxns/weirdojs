@@ -1,5 +1,5 @@
-import { Schema, model } from "@ioc:Mongoose";
-import { LeaderboardStats } from './LeaderboardStats'
+import { Schema, model } from '@ioc:Mongoose';
+import { LeaderboardStats } from './LeaderboardStats';
 
 const leaderboardSchema = new Schema({
   position: {
@@ -22,6 +22,6 @@ const leaderboardSchema = new Schema({
     type: LeaderboardStats,
     required: true
   }
-})
+});
 
-export default model('Leaderboard', leaderboardSchema, 'leaderboard')
+export default model('Leaderboard', leaderboardSchema, 'leaderboard');

@@ -5,9 +5,9 @@
  * file.
  */
 
-import Env from '@ioc:Adonis/Core/Env'
-import { DriveConfig } from '@ioc:Adonis/Core/Drive'
-import Application from '@ioc:Adonis/Core/Application'
+import Env from '@ioc:Adonis/Core/Env';
+import { DriveConfig } from '@ioc:Adonis/Core/Drive';
+import Application from '@ioc:Adonis/Core/Application';
 
 /*
 |--------------------------------------------------------------------------
@@ -77,8 +77,8 @@ const driveConfig: DriveConfig = {
       | you are not registering routes with this prefix.
       |
       */
-      basePath: '/uploads',
-    },
+      basePath: '/uploads'
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -122,7 +122,7 @@ const driveConfig: DriveConfig = {
     //   keyFilename: Env.get('GCS_KEY_FILENAME'),
     //   bucket: Env.get('GCS_BUCKET'),
 
-      /*
+    /*
       |--------------------------------------------------------------------------
       | Uniform ACL - Google cloud storage only
       |--------------------------------------------------------------------------
@@ -142,7 +142,7 @@ const driveConfig: DriveConfig = {
       */
     //   usingUniformAcl: false
     // },
-  },
-}
+  }
+};
 
-export default driveConfig
+export default driveConfig;

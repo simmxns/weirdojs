@@ -1,1 +1,1 @@
-declare module 'source-map-support'
+declare module 'source-map-support';

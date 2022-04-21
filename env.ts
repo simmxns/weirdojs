@@ -12,16 +12,16 @@
 |
 */
 
-import Env from '@ioc:Adonis/Core/Env'
+import Env from '@ioc:Adonis/Core/Env';
 
 export default Env.rules({
-	HOST: Env.schema.string({ format: 'host' }),
-	PORT: Env.schema.number(),
-	APP_KEY: Env.schema.string(),
-	APP_NAME: Env.schema.string(),
-	DRIVE_DISK: Env.schema.enum(['local'] as const),
-	NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),
-	MONGODB_USER: Env.schema.string(),
-	MONGODB_PWD: Env.schema.string(),
-	MONGODB_URL: Env.schema.string()
-})
+  HOST: Env.schema.string({ format: 'host' }),
+  PORT: Env.schema.number(),
+  APP_KEY: Env.schema.string(),
+  APP_NAME: Env.schema.string(),
+  DRIVE_DISK: Env.schema.enum(['local'] as const),
+  NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),
+  MONGODB_USER: Env.schema.string(),
+  MONGODB_PWD: Env.schema.string(),
+  MONGODB_URL: Env.schema.string()
+});
