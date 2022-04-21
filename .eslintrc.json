@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:adonis/typescriptApp",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": "error",
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"]
+  }
+}

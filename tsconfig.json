@@ -1,38 +1,27 @@
 {
   "extends": "./node_modules/adonis-preset-ts/tsconfig",
-  "include": [
-    "**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
-  ],
+  "include": ["**/*"],
+  "exclude": ["node_modules", "build", "coverage", "test"],
   "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
     "outDir": "build",
     "rootDir": "./",
     "sourceMap": true,
     "paths": {
-      "App/*": [
-        "./app/*"
-      ],
-      "Config/*": [
-        "./config/*"
-      ],
-      "Contracts/*": [
-        "./contracts/*"
-      ],
-      "Database/*": [
-        "./database/*"
-      ],
-      "Controllers/*": [
-        "app/Controllers/*"
-      ]
+      "App/*": ["./app/*"],
+      "Config/*": ["./config/*"],
+      "Contracts/*": ["./contracts/*"],
+      "Database/*": ["./database/*"],
+      "Controllers/*": ["app/Controllers/*"],
+      "Models/*": ["app/Models/*"]
     },
     "types": [
       "@adonisjs/core",
       "@adonisjs/repl",
-      "@japa/preset-adonis/build/adonis-typings",
-      "@zakodium/adonis-mongodb"
+      "@japa/preset-adonis/build/adonis-typings"
     ]
   }
 }

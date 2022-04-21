@@ -24,4 +24,4 @@ const leaderboardSchema = new Schema({
   }
 })
 
-export default model('Leaderboard', leaderboardSchema)
+export default model('Leaderboard', leaderboardSchema, 'leaderboard')
