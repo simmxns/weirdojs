@@ -7,7 +7,7 @@
     "build": "node ace build --production",
     "start": "ENV_PATH=\".env.production\" node server.js",
     "lint": "eslint . --ext=.ts",
-    "fix": "concurrently \"prettier -w .\" \"npm run lint --fix\""
+    "pretty": "prettier -w ."
   },
   "eslintConfig": {
     "extends": [

@@ -6,16 +6,14 @@
     "@adonisjs/repl/build/commands"
   ],
   "exceptionHandlerNamespace": "App/Exceptions/Handler",
-  "namespaces": {
-    "Controllers": "App/Controllers"
-  },
   "aliases": {
     "App": "app",
     "Config": "config",
     "Database": "database",
     "Contracts": "contracts",
     "Controllers": "App/Controllers",
-    "Models": "App/Models"
+    "Models": "App/Models",
+    "Helpers": "App/Helpers"
   },
   "preloads": ["./start/routes", "./start/kernel"],
   "providers": [
