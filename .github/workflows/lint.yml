@@ -1,7 +1,7 @@
 name: lint & beautify
-on: |
-  push
-  pull_request
+on:
+  - push
+  - pull_request
 jobs:
   fix:
     runs-on: ubuntu-latest
