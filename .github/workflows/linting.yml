@@ -2,6 +2,9 @@ name: lint & beautify
 on:
   - push
   - pull_request
+defaults:
+  run:
+    working-directory: ./api
 jobs:
   fix:
     runs-on: ubuntu-latest
@@ -11,8 +14,7 @@ jobs:
         uses: actions/setup-node@v3.1.1
         with: 
           node-version: 12.x
-      - name: install depedencies and run prettier and eslint 
-        working-directory: ./api
+      - name: install depedencies and run prettier and eslint
         run: |
           npm i
           npm run pretty
