@@ -7,11 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Node.js enviroment
+      - name: Setup Node.js enviroment        
         uses: actions/setup-node@v3.1.1
         with: 
           node-version: 12.x
-      - name: run npm i, prettier and eslint 
+      - name: install depedencies and run prettier and eslint 
+        working-directory: ./api
         run: |
           npm i
           npm run pretty
