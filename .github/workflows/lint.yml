@@ -1,0 +1,18 @@
+name: lint & beautify
+on:
+  - push
+  - pull_request
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js enviroment
+        uses: actions/setup-node@v3.1.1
+        with: 
+          node-version: 12.x
+      - name: run npm i, prettier and eslint 
+        run: |
+          npm i
+          npm run pretty
+          npm run lint --fix
