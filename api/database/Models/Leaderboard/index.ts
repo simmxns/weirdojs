@@ -1,5 +1,13 @@
 import { Schema, model } from '@ioc:Mongoose';
-import { LeaderboardStats } from './LeaderboardStats';
+
+const LeaderboardStats = new Schema(
+  {
+    correct: Number,
+    time: [Number, Number, Number],
+    points: Number
+  },
+  { _id: false }
+);
 
 const leaderboardSchema = new Schema(
   {

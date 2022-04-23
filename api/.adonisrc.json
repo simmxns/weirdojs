@@ -13,7 +13,8 @@
     "Contracts": "contracts",
     "Controllers": "App/Controllers",
     "Models": "App/Models",
-    "Helpers": "App/Helpers"
+    "Helpers": "App/Helpers",
+    "Schemas": "App/Schemas"
   },
   "preloads": ["./start/routes", "./start/kernel"],
   "providers": [

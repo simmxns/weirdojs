@@ -3,7 +3,7 @@
   "include": ["**/*"],
   "exclude": ["node_modules", "build", "coverage", "test"],
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -16,7 +16,8 @@
       "Contracts/*": ["./contracts/*"],
       "Database/*": ["./database/*"],
       "Controllers/*": ["app/Controllers/*"],
-      "Models/*": ["app/Models/*"],
+      "Models/*": ["database/Models/*"],
+      "Schemas/*": ["app/Schemas/*"],
       "Helpers/*": ["app/Helpers/*"]
     },
     "types": [

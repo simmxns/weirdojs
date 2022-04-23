@@ -1,6 +1,6 @@
 import type { ApplicationContract } from '@ioc:Adonis/Core/Application';
 import Env from '@ioc:Adonis/Core/Env';
-import colors from 'colors';
+import { red } from 'colors';
 import mongoose from 'mongoose';
 
 export default class MongoProvider {
@@ -15,7 +15,7 @@ export default class MongoProvider {
         },
         authSource: Env.get('MONGODB_AUTH_SOURCE')
       })
-      .catch((e) => console.error(`[ ${colors.bgGreen('moongose')} ]: ${e}`));
+      .catch((e) => this.app.logger.error(`[ ${red('moongose')} ]: ${e}`));
 
     this.app.container.singleton('Mongoose', () => mongoose);
   }

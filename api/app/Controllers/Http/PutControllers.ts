@@ -1,42 +1,36 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import hasBody from 'App/Helpers/hasBody';
-import Leaderboard from 'Models/Leaderboard';
+import Leaderboard from 'Database/Models/Leaderboard';
+import schema from 'Schemas/Leaderboard';
+import { validator } from '@ioc:Adonis/Core/Validator';
 
 export default class PutControllers {
-  async updatePlayer({ request, response, params }: HttpContextContract) {
-    const body = request.body();
+  async update({ request, response, params }: HttpContextContract) {
+    const data = request.body();
 
-    if (!hasBody(body)) {
-      response.status(400);
-      return {
-        success: false,
-        message: 'no body provided'
-      };
-    }
+    await validator
+      .validate({ schema, data })
+      .then(async json => {
+        const updated: any = await Leaderboard.findByIdAndUpdate(
+          params.id,
+          {
+            $set: {
+              name: json.name,
+              flag: json.flag,
+              'stats.correct': json.stats.correct,
+              'stats.time': json.stats.time,
+              'stats.points': json.stats.points
+            }
+          },
+          { new: true }
+        );
+        response.ok(updated);
+      })
+      .catch(e => {
+        if (e.name === 'CastError')
+          response.notFound({ message: 'user not found' });
 
-    try {
-      const { name, stats, flag } = body;
-      const updatedDoc = await Leaderboard.findByIdAndUpdate(params.id, {
-        $set: {
-          name,
-          "stats.correct": stats.correct,
-          "stats.time": stats.time,
-          "stats.points": stats.points,
-          flag
-        }
-      }, { new: true });
-
-      response.status(200);
-      return {
-        success: true,
-        data: updatedDoc
-      };
-    } catch {
-      response.status(404);
-      return {
-        success: false,
-        message: 'user not found'
-      };
-    }
+        if (e.name === 'ValidationException')
+          response.badRequest({ message: 'no acceptable body' });
+      });
   }
 }
