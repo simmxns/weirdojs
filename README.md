@@ -10,7 +10,7 @@ Quiz project with the weirdest things about js
 ## Getting start
 This is a complete project for the development of a quiz made with the strongtyped 'typescript'
 
-It consists of a quiz game of 20 questions where the questions are related to the weird things I found about js. You must answer by selecting (you can use the keyboard too!) one of the given answers and. Your score will be higher if you solve it in a short time and with more correct questions In the end, you can see what position you were in.
+It consists of a quiz game of 20 questions where the questions are related to the weird things I found about **javascript**. You must answer by selecting (you can use the keyboard too!) one of the given answers. Your score will be higher if you solve it in a short time and with more correct questions. In the end, you can see you on the leaderboard.
 
 Much success!
 
