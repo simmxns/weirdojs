@@ -38,6 +38,7 @@ cd ../app/ && npm i
 cd ..
 ```
 Now you can work properly on both directories
+
 **⚠️ NOTE: you need first to set up the .env file, go to .env.example to see how should be**
 api:
 ```bash
@@ -50,7 +51,7 @@ cd app && npm run develop
 
 
 ## Contribute
-Y'all are welcome to contribute to this project
+Y'all are welcome to contribute to this project <br>
 I will be happy to see your PRs 🤠
 
 ## Inspired by
