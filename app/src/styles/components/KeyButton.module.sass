@@ -1,0 +1,46 @@
+@use '../core'
+
+$-x-rectangle: 14px
+$-y-rectangle: 5px
+$-y-square: 5px
+$-x-square: 9px
+
+.textKeyButton
+  font-family: 'Helvetica'
+  font-weight: 800
+  font-size: 1rem
+  color: #fc9788
+
+.textShadow
+  font-family: 'Helvetica'
+  font-weight: 800
+  font-size: 1rem
+  visibility: hidden
+
+.globalKeyButton
+  cursor: pointer
+  position: relative
+
+.keyButton
+  position: absolute
+  top: -5.45px
+  left: -5.45px
+  @include core.layout-flex(center, center)
+  background: #404040
+  border: 1px solid #303030
+  border-radius: 5px
+
+.keyShadow
+  z-index: -1
+  border-radius: 5px
+  background: rgba(0, 0, 0, 0.25)
+
+.keyButtonSquare
+  padding: $-y-square $-x-square
+
+.keyButtonRectangle
+  padding: $-y-rectangle $-x-rectangle
+
+.keyButtonActive
+  top: -2px
+  left: -2px

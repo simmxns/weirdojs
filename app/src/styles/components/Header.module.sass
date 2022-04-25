@@ -1,0 +1,27 @@
+@use '../core'
+
+.headerBody
+  @include core.layout-flex(center, space-between)
+  position: relative
+  font-family: 'Roboto'
+  font-weight: 400
+  font-size: 0.875rem
+  color: core.$white
+  width: 100%
+  height: 4.70rem
+  padding-inline: 7.8rem
+  background: rgba(255, 119, 113, 0.33)
+
+.leftSide
+  @include core.layout-flex(center, space-between)
+  gap: 3.125rem
+
+.rightSide
+  @include core.layout-flex(center, space-between)
+  gap: 1.56rem
+
+.logo
+  @include core.absolute-center
+
+.headerBtn
+  @extend .activeAnim
