@@ -24,6 +24,7 @@ Much success!
 * Client
   * React
   * Typescript
+  * Sass (.sass)
   * Gatsbyjs
 * Utilities
   * eslint
