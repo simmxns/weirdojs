@@ -1,21 +1,17 @@
 import { FunctionComponent } from 'react';
-import { CodeBlock, atomOneDark } from 'react-code-blocks';
 import * as styles from '@/styles/components/CodeSnippet.module.sass';
 
 interface PropTypes {
-  code: string;
+  snippet: string;
 }
 
-const CodeSnippet: FunctionComponent<PropTypes> = function ({ code }) {
+const CodeSnippet: FunctionComponent<PropTypes> = function ({ snippet }) {
   return (
     <div className={styles.codeSnippetBody}>
-      <CodeBlock
-        text={code}
-        language={'javascript'}
-        showLineNumbers={false}
-        startingLineNumber={0}
-        theme={atomOneDark}
-      />
+      <p className={styles.codeSnippetChevron}>{`>`}</p>
+      <code lang="javascript" className={styles.codeSnippetCode}>
+        {snippet}
+      </code>
     </div>
   );
 };

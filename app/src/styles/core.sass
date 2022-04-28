@@ -1,16 +1,16 @@
 $white: #fff
 $secondary: #fc9788
 
-
 @mixin layout-flex($align, $justify)
   display: flex
   align-items: $align
   justify-content: $justify
 
-@mixin layou-grid($align, $justify)
+@mixin layout-grid($align, $justify, $flow)
   display: grid
   align-items: $align
   justify-content: $justify
+  grid-auto-flow: $flow
 
 @mixin no-scroll
   overflow-x: hidden !important
@@ -28,7 +28,7 @@ $secondary: #fc9788
 .activeAnim
   transition: transform 65ms ease-in-out
   &:active
-    transform: scale(0.85)
+    transform: scale(0.895)
 
 .activeAnimAndRotate
   @extend .activeAnim
@@ -60,10 +60,10 @@ $secondary: #fc9788
 
 @font-face
   font-family: 'RobotoMono'
-  font-weight: 400
-  src: url('/fonts/RobotoMono-Regular.ttf') format('truetype')
+  font-weight: 600
+  src: url('/fonts/RobotoMono-Medium.ttf') format('truetype')
 
 @font-face
   font-family: 'RobotoMono'
-  font-weight: 600
-  src: url('/fonts/RobotoMono-Medium.ttf') format('truetype')
+  font-weight: 800
+  src: url('/fonts/RobotoMono-Bold.ttf') format('truetype')

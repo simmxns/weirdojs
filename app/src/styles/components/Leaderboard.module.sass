@@ -1,0 +1,40 @@
+@use '../core' as core
+
+.longCardBody
+  @include core.layout-flex(center, space-between)
+  background: #404040
+  border-radius: 8px
+  color: core.$white
+  padding: 15px 20px
+
+.leftSideWrapper
+  @include core.layout-grid(center, center, column)
+  column-gap: 10px
+  font-family: 'Roboto'
+  font-weight: 800
+  font-size: 1rem
+
+.rightSideWrapper
+  @include core.layout-flex(center, center)
+  font-family: 'Roboto'
+  font-weight: 800
+  font-size: 1.375rem
+
+.timeCorrectWrapper
+  @include core.layout-grid(center, center, column)
+  column-gap: 6px
+  margin-right: 10px
+  font-family: 'Roboto'
+  font-weight: 600
+  font-size: 0.875rem
+
+.longCardImg
+  aspect-ratio: 16/9
+  width: 36px
+  border-radius: 3px
+  object-fit: cover
+
+.incrementer
+  font-weight: 600
+  font-size: 0.875rem
+  color: #8e8e8e

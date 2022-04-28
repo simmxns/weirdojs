@@ -1,0 +1,37 @@
+@use '../core' as core
+
+$-circle-size: 10rem
+
+.statsPanelBody
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: #404040
+  font-family: 'Helvetica'
+  color: core.$white
+
+.statsPanelCongrats
+  font-size: 1.75rem
+  font-weight: 400
+
+.statsPanelStats
+  font-size: 2rem
+  font-weight: 400
+
+.statsPanelScore
+  font-size: 5rem
+
+.statsWrapper
+  @include core.layout-grid(center, center, column)
+  column-gap: 160px
+
+.statsCircle
+  @include core.layout-flex(center, center)
+  width: $-circle-size
+  height: $-circle-size
+  background: none
+  border: 1px solid core.$white
+  border-radius: 100%
+  

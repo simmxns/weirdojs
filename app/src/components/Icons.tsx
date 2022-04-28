@@ -1,4 +1,6 @@
-export const Logo = (props: any) => (
+import { ReactElement } from 'react';
+
+export const Logo = (props: any): ReactElement<SVGSVGElement> => (
   <svg width={36} height={38} fill="none" {...props}>
     <path
       d="M34 2.188 29.944 31.59l-12.166 4.056L5.61 31.59 1.556 2.188H34Z"
@@ -17,7 +19,7 @@ export const Logo = (props: any) => (
   </svg>
 );
 
-export const GithubIcon = (props: any) => (
+export const GithubIcon = (props: any): ReactElement<SVGSVGElement> => (
   <svg width={22} height={21} {...props}>
     <path
       fillRule="evenodd"
@@ -27,8 +29,9 @@ export const GithubIcon = (props: any) => (
     />
   </svg>
 );
-export const TranslateIcon = (props: any) => (
-  <svg width={20} height={20} {...props}>
+
+export const TranslateIcon = (props: any): ReactElement<SVGSVGElement> => (
+  <svg width={20} height={20} fill="none" {...props}>
     <path
       d="M5.681 8.393 5.138 10H3.75l2.327-6.25h1.606L10 10H8.541l-.544-1.607H5.681Zm2.043-.92-.849-2.528h-.061l-.849 2.527h1.76-.001Z"
       fill="#fff"
@@ -40,7 +43,7 @@ export const TranslateIcon = (props: any) => (
   </svg>
 );
 
-export const TimerIcon = (props: any) => (
+export const TimerIcon = (props: any): ReactElement<SVGSVGElement> => (
   <svg width={18} height={18} fill="none" {...props}>
     <path
       d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16Z"
@@ -55,6 +58,17 @@ export const TimerIcon = (props: any) => (
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const EditIcon = (props: any): ReactElement<SVGSVGElement> => (
+  <svg width={27} height={27} fill="none" {...props}>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M25.168 3.602c.534.507.534 1.396 0 1.93L22.65 8.036l-5.13-5.132L20.037.4c.533-.533 1.423-.533 1.929 0l3.202 3.202ZM.933 24.133v-4.63L16.068 4.355 21.2 9.487 6.566 24.133H25.2a1 1 0 1 1 0 2H.8v-2h.133Z"
+      fill="#fff"
     />
   </svg>
 );

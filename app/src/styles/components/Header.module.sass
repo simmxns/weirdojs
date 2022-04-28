@@ -1,4 +1,4 @@
-@use '../core'
+@use '../core' as core
 
 .headerBody
   @include core.layout-flex(center, space-between)
@@ -24,4 +24,5 @@
   @include core.absolute-center
 
 .headerBtn
+  cursor: pointer
   @extend .activeAnim

@@ -1,20 +1,32 @@
 import * as styles from '@/styles/components/KeyButton.module.sass';
 import { useEffect, useState, FunctionComponent } from 'react';
 
-enum KeyTypeResolver {
-  space = 'space',
-  esc = 'esc',
-  right = '>',
-  left = '<',
-  q = 'Q',
-  w = 'W',
-  e = 'E',
-  r = 'R'
-}
+const PropsResolver = {
+  charKey: {
+    space: 'space',
+    esc: 'esc',
+    right: '>',
+    left: '<',
+    q: 'Q',
+    w: 'W',
+    e: 'E',
+    r: 'R'
+  },
+  keyCode: {
+    space: 'Space',
+    esc: 'Escape',
+    right: 'ArrowRight',
+    left: 'ArrowLeft',
+    q: 'KeyQ',
+    w: 'KeyW',
+    e: 'KeyE',
+    r: 'KeyR'
+  }
+};
 
 interface PropTypes {
   keyType: 'space' | 'esc' | 'right' | 'left' | 'q' | 'w' | 'e' | 'r';
-  className?: string
+  className?: string;
 }
 
 const KeyButton: FunctionComponent<PropTypes> = function ({ keyType, className }) {
@@ -23,32 +35,46 @@ const KeyButton: FunctionComponent<PropTypes> = function ({ keyType, className }
 
   useEffect(() => {
     setisSquare(keyType.match(/\b(space|esc)\b/) === null);
+
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.code === PropsResolver.keyCode[keyType]) setActive(true);
+    });
+    document.addEventListener('keyup', (e: KeyboardEvent) => {
+      if (e.code === PropsResolver.keyCode[keyType]) setActive(false);
+    });
   });
 
-  const onMouseUpHandler = () => setActive(false);
   const onMouseDownHandler = () => setActive(true);
+  const onMouseUpHandler = () => setActive(false);
 
   return (
-    <button
-      onMouseDown={onMouseDownHandler}
-      onMouseUp={onMouseUpHandler}
-      className={`${styles.globalKeyButton} ${className ? className : ''}`}
-    >
-      <div
-        className={`${styles.keyButton} ${
-          active ? styles.keyButtonActive : ''
-        } ${isSquare ? styles.keyButtonSquare : styles.keyButtonRectangle}`}
+    <div className={`${className ? className : ''}`}>
+      <button
+        onMouseDown={onMouseDownHandler}
+        onMouseUp={onMouseUpHandler}
+        className={styles.keyButtonWrapper}
       >
-        <p className={styles.textKeyButton}>{KeyTypeResolver[keyType]}</p>
-      </div>
-      <div
-        className={`${styles.keyShadow} ${
-          isSquare ? styles.keyButtonSquare : styles.keyButtonRectangle
-        }`}
-      >
-        <p className={styles.textShadow}>{KeyTypeResolver[keyType]}</p>
-      </div>
-    </button>
+        <div
+          className={`${styles.keyButton} ${
+            active
+              ? isSquare
+                ? styles.keyButtonActive
+                : styles.keyButtonActiveRec
+              : ''
+          }
+          ${isSquare ? styles.keyButtonSquare : styles.keyButtonRectangle}`}
+        >
+          <p className={styles.textKeyButton}>{PropsResolver.charKey[keyType]}</p>
+        </div>
+        <div
+          className={`${styles.keyShadow} ${
+            isSquare ? styles.keyButtonSquare : styles.keyButtonRectangle
+          }`}
+        >
+          <p className={styles.textShadow}>{PropsResolver.charKey[keyType]}</p>
+        </div>
+      </button>
+    </div>
   );
 };
 
