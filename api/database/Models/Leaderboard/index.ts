@@ -11,7 +11,7 @@ const LeaderboardStats = new Schema(
 
 const leaderboardSchema = new Schema(
   {
-    flag: {
+    country: {
       type: String,
       required: true,
       trim: true

@@ -2,7 +2,7 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator';
 
 export default schema.create({
   name: schema.string.optional({ trim: true }),
-  flag: schema.string.optional({ trim: true }),
+  country: schema.string.optional({ trim: true }),
   stats: schema.object().members({
     correct: schema.number(),
     points: schema.number(),

@@ -15,7 +15,7 @@ export default class PutControllers {
           {
             $set: {
               name: json.name,
-              flag: json.flag,
+              country: json.country,
               'stats.correct': json.stats.correct,
               'stats.time': json.stats.time,
               'stats.points': json.stats.points
