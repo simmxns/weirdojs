@@ -1,8 +1,7 @@
 @use '../core' as core
 
-$-circle-size: 10rem
-
 .statsPanelBody
+  @include core.layout-flex(center, center)
   position: absolute
   top: 0
   left: 0
@@ -10,28 +9,62 @@ $-circle-size: 10rem
   height: 100%
   background-color: #404040
   font-family: 'Helvetica'
+
+.statsPanelWrapper
+  @include core.layout-flex(center, center)
+  flex-direction: column
+  width: max-content
+  height: 100%
   color: core.$white
 
 .statsPanelCongrats
   font-size: 1.75rem
   font-weight: 400
+  margin: 0 auto 0 0
 
-.statsPanelStats
-  font-size: 2rem
-  font-weight: 400
+.statsSubtitle
+  text-align: center
+  font-size: 0.875rem
+  margin-top: 20px
+
+.scoreSubtitle
+  text-align: center
+  font-size: 0.875rem
+  margin-top: 10px
 
 .statsPanelScore
-  font-size: 5rem
+  @include core.layout-flex(center, center)
+  flex-direction: column
+  font-size: 8rem
+  margin-top: 45px
 
 .statsWrapper
   @include core.layout-grid(center, center, column)
   column-gap: 160px
+  margin-top: 45px
 
-.statsCircle
+$-circle-size: 13rem
+
+.statsCircleWrapper
+  width: $-circle-size
   @include core.layout-flex(center, center)
+  flex-direction: column
+
+/* CirclePercent.tsx
+.canvasWrapper
+  position: relative
   width: $-circle-size
   height: $-circle-size
-  background: none
+
+.canvasCircle
+  width: inherit
+  height: inherit
   border: 1px solid core.$white
   border-radius: 100%
-  
+
+.strokePercent
+  display: block
+  @include core.absolute-center
+  text-align: center
+  font-size: 2rem
+  font-weight: 800

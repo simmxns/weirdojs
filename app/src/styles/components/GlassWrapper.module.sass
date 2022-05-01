@@ -1,5 +1,9 @@
+@use '../core' as core
+  
 .glassBody
   background: linear-gradient(334.14deg, rgba(255, 255, 255, 0.31) -14.65%, rgba(255, 255, 255, 0) 103.2%), linear-gradient(149.49deg, rgba(255, 232, 191, 0.4) -4.75%, rgba(255, 232, 191, 0) 119.61%)
   filter: drop-shadow(7px 7px 28px rgba(0, 0, 0, 0.18))
   backdrop-filter: blur(8px)
   border-radius: 25px
+  width: 100%
+  height: calc(100% - core.$header-height)
