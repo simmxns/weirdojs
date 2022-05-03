@@ -4,12 +4,12 @@ coverage
 .vscode
 tmp
 
-api/.env
-api/.env.development
-api/.env.production
-api/.env.testing
-app/.cache/
-app/public
+.env
+.env.development
+.env.production
+.env.testing
+.cache/
+public/
 
 .DS_Store
 ._*
