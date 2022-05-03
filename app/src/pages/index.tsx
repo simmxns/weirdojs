@@ -1,4 +1,4 @@
-import GlassWrapper from '@/components/GlassWrapper';
+import GlassLayout from '@/components/GlassLayout';
 import Header from '@/components/Header';
 import { Helmet } from 'react-helmet';
 import * as styles from '@/styles/layouts/index.module.sass';
@@ -7,13 +7,13 @@ import KeyButton from '@/components/KeyButton';
 export default function IndexPage() {
   return (
     <>
+      <Helmet>
+        <title>Weirdo.js</title>
+        <meta name="description" content="Home/Landing page of the website" />
+      </Helmet>
       <Header />
-      <main>
-        <Helmet>
-          <title>Weirdo.js</title>
-          <meta name="description" content="Home/Landing page of the website" />
-        </Helmet>
-        <GlassWrapper>
+      <main className={styles.indexHero}>
+        <GlassLayout>
           <div className={styles.glassHero}>
             <h1 className={styles.title}>Is JS a weirdo?</h1>
             <p className={styles.description}>
@@ -27,14 +27,14 @@ export default function IndexPage() {
               peculiarly rare language. <br />
               <br />I will present you with a few short multiple choice
               questions that you must solve under your own logic, which will
-              demonstrate you why <b>«javascript is a weirdo»</b>.
+              demonstrate you why <b>"javascript is a weirdo"</b>.
             </p>
             <div className={styles.startWrapper}>
-              <KeyButton keyType="space" />
+              <KeyButton keyType="space" callback={() => alert('hola')} />
               <strong className={styles.startText}>to start the quiz</strong>
             </div>
           </div>
-        </GlassWrapper>
+        </GlassLayout>
       </main>
     </>
   );

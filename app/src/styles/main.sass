@@ -1,3 +1,38 @@
+@font-face
+  font-family: 'Helvetica'
+  font-weight: 800
+  src: url('/fonts/Helvetica-Bold.ttf') format('truetype')
+
+@font-face
+  font-family: 'Helvetica'
+  font-weight: 400
+  src: url('/fonts/Helvetica.ttf') format('truetype')
+
+@font-face
+  font-family: 'Roboto'
+  font-weight: 400
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype')
+
+@font-face
+  font-family: 'Roboto'
+  font-weight: 600
+  src: url('/fonts/Roboto-Medium.ttf') format('truetype')
+
+@font-face
+  font-family: 'Roboto'
+  font-weight: 800
+  src: url('/fonts/Roboto-Bold.ttf') format('truetype')
+
+@font-face
+  font-family: 'RobotoMono'
+  font-weight: 600
+  src: url('/fonts/RobotoMono-Medium.ttf') format('truetype')
+
+@font-face
+  font-family: 'RobotoMono'
+  font-weight: 800
+  src: url('/fonts/RobotoMono-Bold.ttf') format('truetype')
+
 *
   margin: 0
   padding: 0
@@ -36,6 +71,7 @@ table
   border-spacing: 0
 
 button
+  cursor: pointer
   background: none
   border: none
 
@@ -53,3 +89,14 @@ html, body, #___gatsby
 
 div[tabindex]
   height: 100%
+
+.jsTitle
+  right: 28px
+  bottom: 0
+  font-family: 'RobotoMono'
+  font-weight: 800
+  font-size: 18rem
+  position: absolute
+  color: white
+  z-index: -1
+  pointer-events: none

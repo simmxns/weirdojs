@@ -26,15 +26,20 @@ const PropsResolver = {
 
 interface PropTypes {
   keyType: 'space' | 'esc' | 'right' | 'left' | 'q' | 'w' | 'e' | 'r';
+  callback: () => void;
   className?: string;
 }
 
-const KeyButton: FunctionComponent<PropTypes> = function ({ keyType, className }) {
+const KeyButton: FunctionComponent<PropTypes> = function ({
+  keyType,
+  className,
+  callback
+}) {
   const [active, setActive] = useState(false);
-  const [isSquare, setisSquare] = useState(false);
+  const [isSquare, setIsSquare] = useState(false);
 
   useEffect(() => {
-    setisSquare(keyType.match(/\b(space|esc)\b/) === null);
+    setIsSquare(keyType.match(/\b(space|esc)\b/) === null);
 
     document.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.code === PropsResolver.keyCode[keyType]) setActive(true);
@@ -50,6 +55,7 @@ const KeyButton: FunctionComponent<PropTypes> = function ({ keyType, className }
   return (
     <div className={`${className ? className : ''}`}>
       <button
+        onClick={() => callback()}
         onMouseDown={onMouseDownHandler}
         onMouseUp={onMouseUpHandler}
         className={styles.keyButtonWrapper}
@@ -64,7 +70,9 @@ const KeyButton: FunctionComponent<PropTypes> = function ({ keyType, className }
           }
           ${isSquare ? styles.keyButtonSquare : styles.keyButtonRectangle}`}
         >
-          <p className={styles.textKeyButton}>{PropsResolver.charKey[keyType]}</p>
+          <p className={styles.textKeyButton}>
+            {PropsResolver.charKey[keyType]}
+          </p>
         </div>
         <div
           className={`${styles.keyShadow} ${

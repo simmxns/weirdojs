@@ -1,11 +1,11 @@
-import * as styles from '@/styles/components/GlassWrapper.module.sass'
+import * as styles from '@/styles/components/GlassLayout.module.sass'
 import { FunctionComponent, ReactElement } from 'react';
 
 interface PropTypes {
   children: ReactElement;
 }
 
-const GlassWrapper: FunctionComponent<PropTypes> = function ({ children }) {
+const GlassLayout: FunctionComponent<PropTypes> = function ({ children }) {
   return (
     <div className={styles.glassBody}>
       {children}
@@ -13,4 +13,4 @@ const GlassWrapper: FunctionComponent<PropTypes> = function ({ children }) {
   );
 };
 
-export default GlassWrapper;
+export default GlassLayout;

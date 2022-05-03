@@ -72,3 +72,14 @@ export const EditIcon = (props: any): ReactElement<SVGSVGElement> => (
     />
   </svg>
 );
+
+export const GoBackIcon = (props: any): ReactElement<SVGSVGElement> => (
+  <svg width={20} height={12} fill="none" {...props}>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M20 6a.645.645 0 0 0-.21-.471.74.74 0 0 0-.504-.196H2.44L6.935 1.14A.666.666 0 0 0 7.09.923a.629.629 0 0 0-.155-.728.76.76 0 0 0-1.011 0L.21 5.528a.666.666 0 0 0-.155.217.628.628 0 0 0 .155.727l5.714 5.333a.72.72 0 0 0 .232.144.76.76 0 0 0 .78-.144.666.666 0 0 0 .154-.217.63.63 0 0 0-.155-.727L2.44 6.667h16.846a.74.74 0 0 0 .505-.196A.645.645 0 0 0 20 6Z"
+      fill="#fff"
+    />
+  </svg>
+);
