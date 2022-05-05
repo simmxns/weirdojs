@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef } from 'react';
+import { FunctionComponent } from 'react';
 import * as styles from '@/styles/components/StatsPanel.module.sass';
 import { minizeTime } from '@/helpers/minizeTime';
 import CirclePercent from './CirclePercent';

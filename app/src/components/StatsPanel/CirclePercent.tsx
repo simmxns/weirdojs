@@ -21,11 +21,11 @@ function createStroke(canvas: HTMLCanvasElement, limit: number) {
     fps: 1000 / 200,
     onePercent: 360 / 100
   };
-  let result = canvasState.onePercent * limit;
+  const result = canvasState.onePercent * limit;
   canvasCtx.lineCap = 'round';
   arcMove();
 
-  let { posX, posY, fps } = canvasState;
+  const { posX, posY, fps } = canvasState;
   function arcMove() {
     let deegres = 0;
     const arcInterval = setInterval(() => {

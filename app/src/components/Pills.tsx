@@ -1,4 +1,4 @@
-import * as styles from '@/styles/components/Pill.module.sass'
+import * as styles from '@/styles/components/Pill.module.sass';
 import { FunctionComponent } from 'react';
 import { TimerIcon } from './Icons';
 

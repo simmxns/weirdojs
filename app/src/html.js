@@ -23,8 +23,8 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{
             __html: props.body
           }}
-          />
-          <h2 className={`jsTitle`}>JS</h2>
+        />
+        <h2 className={`jsTitle`}>JS</h2>
         {props.postBodyComponents}
       </body>
     </html>

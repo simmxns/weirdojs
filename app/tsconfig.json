@@ -12,9 +12,10 @@
     "noUnusedLocals": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@env": ["./env.ts"]
     }
   },
-  "include": ["./src/**/*", "./@types/**/*", "gatsby-browser.js"],
+  "include": ["./src/**/*", "./@types/**/*", "gatsby-browser.js", "env.ts"],
   "exclude": ["node_modules", ".cache", "public"]
 }

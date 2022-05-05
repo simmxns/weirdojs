@@ -1,11 +1,23 @@
 @use '../core' as core
 
+/* index
+.leaderboardGrid
+  display: grid
+  row-gap: 10px
+
+.paginatorKeys
+  @include core.layout-flex(center, flex-end)
+  gap: 10px
+  margin-top: 15px
+  
+/* LongCard
 .longCardBody
   @include core.layout-flex(center, space-between)
   background: #404040
   border-radius: 8px
   color: core.$white
-  padding: 15px 20px
+  padding: 0 20px
+  height: 60px
 
 .leftSideWrapper
   @include core.layout-grid(center, center, column)
@@ -38,3 +50,12 @@
   font-weight: 600
   font-size: 0.875rem
   color: #8e8e8e
+
+/* LongCardLoading
+.longCardLoadingHero
+  @include core.layout-flex(center, center)
+  height: 100%
+  width: 100%
+  font-family: 'Roboto'
+  font-weight: 800
+  font-size: 1rem

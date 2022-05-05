@@ -1,5 +1,8 @@
 // @ts-check
-const { GatsbyConfig } = require("gatsby");
+const { GatsbyConfig } = require('gatsby');
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
 
 /** @type {GatsbyConfig} */
 module.exports = {

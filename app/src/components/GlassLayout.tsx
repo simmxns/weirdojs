@@ -1,4 +1,4 @@
-import * as styles from '@/styles/components/GlassLayout.module.sass'
+import * as styles from '@/styles/components/GlassLayout.module.sass';
 import { FunctionComponent, ReactElement } from 'react';
 
 interface PropTypes {
@@ -6,11 +6,7 @@ interface PropTypes {
 }
 
 const GlassLayout: FunctionComponent<PropTypes> = function ({ children }) {
-  return (
-    <div className={styles.glassBody}>
-      {children}
-    </div>
-  );
+  return <div className={styles.glassBody}>{children}</div>;
 };
 
 export default GlassLayout;
