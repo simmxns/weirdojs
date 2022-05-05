@@ -1,5 +1,6 @@
 export interface Players {
   _id: string;
+  position: number; 
   name: string;
   stats: {
     correct: number;

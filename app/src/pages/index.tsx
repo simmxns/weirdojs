@@ -2,7 +2,7 @@ import GlassLayout from '@/components/GlassLayout';
 import Header from '@/components/Header';
 import { Helmet } from 'react-helmet';
 import * as styles from '@/styles/layouts/index.module.sass';
-import KeyButton from '@/components/KeyButton';
+import KeyButton from '@/components/KeyButton'
 
 export default function IndexPage() {
   return (
@@ -11,10 +11,10 @@ export default function IndexPage() {
         <title>Weirdo.js</title>
         <meta name="description" content="Home/Landing page of the website" />
       </Helmet>
-      <Header />
+      <Header view='home' />
       <main className={styles.indexHero}>
         <GlassLayout>
-          <div className={styles.glassHero}>
+          <section className={styles.glassHero}>
             <h1 className={styles.title}>Is JS a weirdo?</h1>
             <p className={styles.description}>
               The actual name of javascript is ECMAScript, (javascript btw is
@@ -33,7 +33,7 @@ export default function IndexPage() {
               <KeyButton keyType="space" callback={() => alert('hola')} />
               <strong className={styles.startText}>to start the quiz</strong>
             </div>
-          </div>
+          </section>
         </GlassLayout>
       </main>
     </>

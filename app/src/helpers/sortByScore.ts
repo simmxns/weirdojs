@@ -7,5 +7,8 @@ export function sortPlayersByScore(players: Players[]): Players[] {
       const { points: scoreB } = b[1].stats;
       return scoreB - scoreA;
     })
-    .map(e => e[1]);
+    .map((e, i) => ({
+      ...e[1],
+      position: i+=1
+    }))
 }

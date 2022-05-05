@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const usePaginator = function (arr: any[], rows: number) {
+export const usePaginator = function <T>(arr: T[], rows: number) {
   const [current, setCurrent] = useState(1);
 
   const start = (current - 1) * rows;

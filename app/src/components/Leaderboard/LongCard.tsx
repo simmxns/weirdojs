@@ -10,19 +10,19 @@ interface PropTypes {
     correct: number;
     points: number;
   };
-  index: number;
+  position: number;
 }
 
 const LongCard: FunctionComponent<PropTypes> = function ({
   country,
   playerName,
   stats,
-  index
+  position
 }) {
   return (
     <div className={styles.longCardBody}>
       <div className={styles.leftSideWrapper}>
-        <p className={styles.incrementer}>{index}</p>
+        <p className={styles.incrementer}>{position}</p>
         <img
           src={`https://countryflagsapi.com/png/${country}`}
           className={styles.longCardImg}

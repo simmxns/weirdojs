@@ -11,28 +11,31 @@ import LongCardLoading from './LongCardLoading';
 export default function Leaderboard(): ReactElement {
   const [isLoading, setIsLoading] = useState(true);
   const [players, setPlayers] = useState<Players[]>([]);
-  const { increase, decrease, paginated } = usePaginator(players, 6);
+  const { increase, decrease, paginated } = usePaginator<Players>(players, 6);
 
   useEffect(() => {
-    getPlayers().then(players => {
-      const sorted = sortPlayersByScore(players);
-      setPlayers(sorted);
-      setIsLoading(false);
-    });
+    getPlayers()
+      .then(players => {
+        const sorted = sortPlayersByScore(players);
+        setPlayers(sorted);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   return (
     <div>
-      <ol className={styles.leaderboardGrid}>
+      <ol className={styles.leaderboardList}>
         {isLoading ? (
           <LongCardLoading />
         ) : (
-          paginated.map((e, i) => {
-            const { name, stats, country } = e;
+          paginated.map(elements => {
+            const { position, name, stats, country } = elements;
             return (
               <li>
                 <LongCard
-                  index={(i += 1)}
+                  position={position}
                   country={country}
                   playerName={name}
                   stats={stats}
