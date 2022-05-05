@@ -1,16 +1,16 @@
-import { ReactElement } from 'react';
+import { FunctionComponent, ReactElement } from 'react';
 import * as styles from '@/styles/components/Header.module.sass';
 import { Logo, GithubIcon, TranslateIcon } from './Icons';
 import { Link } from 'gatsby';
 
-export default function Header(): ReactElement<HTMLDivElement, any> {
+const Header: FunctionComponent<PropTypes> = function({ view }) {
   return (
     <header className={styles.headerBody}>
       <ul className={styles.leftSide}>
-        <li>
+        <li className={view === 'home' ? styles.boldLink : ''}>
           <Link to="/">HOME</Link>
         </li>
-        <li>
+        <li className={view === 'leaderboard' ? styles.boldLink : ''}>
           <Link to="/leaderboard">LEADERBOARD</Link>
         </li>
       </ul>
@@ -29,4 +29,11 @@ export default function Header(): ReactElement<HTMLDivElement, any> {
       </ul>
     </header>
   );
+}
+
+export default Header
+
+interface PropTypes {
+  view: 'home' | 'leaderboard'
+
 }
