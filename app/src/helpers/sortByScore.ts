@@ -9,6 +9,6 @@ export function sortPlayersByScore(players: Players[]): Players[] {
     })
     .map((e, i) => ({
       ...e[1],
-      position: i+=1
-    }))
+      position: (i += 1)
+    }));
 }

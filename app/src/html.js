@@ -18,13 +18,13 @@ export default function HTML(props) {
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
         <div
-          key={`body`}
+          key={'body'}
           id="___gatsby"
           dangerouslySetInnerHTML={{
             __html: props.body
           }}
         />
-        <h2 className={`jsTitle`}>JS</h2>
+        <h2 className={'jsTitle'}>JS</h2>
         {props.postBodyComponents}
       </body>
     </html>

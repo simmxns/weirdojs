@@ -3,7 +3,7 @@ import * as styles from '@/styles/components/Header.module.sass';
 import { Logo, GithubIcon, TranslateIcon } from './Icons';
 import { Link } from 'gatsby';
 
-const Header: FunctionComponent<PropTypes> = function({ view }) {
+const Header: FunctionComponent<PropTypes> = function ({ view }) {
   return (
     <header className={styles.headerBody}>
       <ul className={styles.leftSide}>
@@ -29,11 +29,10 @@ const Header: FunctionComponent<PropTypes> = function({ view }) {
       </ul>
     </header>
   );
-}
+};
 
-export default Header
+export default Header;
 
 interface PropTypes {
-  view: 'home' | 'leaderboard'
-
+  view?: 'home' | 'leaderboard';
 }

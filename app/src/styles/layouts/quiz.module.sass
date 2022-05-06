@@ -1,0 +1,7 @@
+@use '../core' as core
+
+.quizHero
+	@include core.layout-grid(center, center, column)
+	grid-auto-columns: 1fr 1fr
+	height: core.$main-height
+	padding: core.$block-padd core.$inline-padd

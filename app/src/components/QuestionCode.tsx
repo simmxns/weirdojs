@@ -1,14 +1,14 @@
 import { FunctionComponent } from 'react';
-import * as styles from '@/styles/components/CodeSnippet.module.sass';
+import * as styles from '@/styles/components/QuestionCode.module.sass';
 
 interface PropTypes {
   snippet: string;
 }
 
-const CodeSnippet: FunctionComponent<PropTypes> = function ({ snippet }) {
+const QuestionCode: FunctionComponent<PropTypes> = function ({ snippet }) {
   return (
     <div className={styles.codeSnippetBody}>
-      <p className={styles.codeSnippetChevron}>{`>`}</p>
+      <p className={styles.codeSnippetChevron}>{'>'}</p>
       <code lang="javascript" className={styles.codeSnippetCode}>
         {snippet}
       </code>
@@ -16,4 +16,4 @@ const CodeSnippet: FunctionComponent<PropTypes> = function ({ snippet }) {
   );
 };
 
-export default CodeSnippet;
+export default QuestionCode;

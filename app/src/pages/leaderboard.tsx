@@ -13,7 +13,7 @@ export default function LeaderboardPage() {
           content="Leaderboard page, list of all players"
         />
       </Helmet>
-      <Header view='leaderboard' />
+      <Header view="leaderboard" />
       <main className={styles.leaderboardHero}>
         <div className={styles.leaderboardContent}>
           <h1 className={styles.leaderboardTitle}>Leaderboard</h1>

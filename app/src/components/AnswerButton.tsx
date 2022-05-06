@@ -5,15 +5,21 @@ import KeyButton from './KeyButton';
 interface PropTypes {
   answer: string;
   keyType: 'space' | 'esc' | 'right' | 'left' | 'q' | 'w' | 'e' | 'r';
+  callback: () => void;
 }
 
 const AnswerButton: FunctionComponent<PropTypes> = function ({
   answer,
-  keyType
+  keyType,
+  callback
 }) {
   return (
     <div className={styles.answerButton}>
-      <KeyButton className={styles.absKeyButton} keyType={keyType} />
+      <KeyButton
+        className={styles.absKeyButton}
+        keyType={keyType}
+        callback={callback}
+      />
       <p>{answer}</p>
     </div>
   );

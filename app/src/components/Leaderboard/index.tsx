@@ -31,9 +31,9 @@ export default function Leaderboard(): ReactElement {
           <LongCardLoading />
         ) : (
           paginated.map(elements => {
-            const { position, name, stats, country } = elements;
+            const { _id, position, name, stats, country } = elements;
             return (
-              <li>
+              <li key={_id}>
                 <LongCard
                   position={position}
                   country={country}

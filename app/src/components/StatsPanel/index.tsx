@@ -11,7 +11,6 @@ interface PropTypes {
   score: number;
 }
 
-
 const StatsPanel: FunctionComponent<PropTypes> = function ({
   playerName,
   position,
