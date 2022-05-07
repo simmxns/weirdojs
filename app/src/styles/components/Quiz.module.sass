@@ -1,24 +1,9 @@
 @use '../core' as core
 
-.questionBody
-	display: flex
-	flex-direction: column
-	width: 100%
-	height: 100%
-	padding: 0 40px 0 0
-
-.pillWrapper
-	@include core.layout-flex(center, space-between)
-	width: 100%
-
-.answerWrapper
+.questionsWrapper
 	@include core.layout-flex(center, center)
 	height: 95%
 	width: 100%
-
-.answersBody
-	width: 100%
-	height: 100%
 
 .answersGlass
 	@include core.layout-flex(center, center)
