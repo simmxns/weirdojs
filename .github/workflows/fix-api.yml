@@ -13,9 +13,8 @@ jobs:
       - name: Setup Node.js enviroment        
         uses: actions/setup-node@v3.1.1
         with: 
-          node-version: 12.x
+          node-version: 16.x
       - name: Install depedencies and run linting cmds
         run: |
           npm i
-          npm run pretty
-          npm run lint --fix
+          npm run pretty & npm run lint --fix
