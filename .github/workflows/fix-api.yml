@@ -1,4 +1,4 @@
-name: eslint/prettier fix
+name: eslint/prettier fix on /api/
 on:
   - push
   - pull_request
