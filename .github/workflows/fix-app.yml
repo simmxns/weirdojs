@@ -1,4 +1,4 @@
-name: lint & beautify
+name: eslint/prettier fix on /app/
 on:
   - push
   - pull_request
