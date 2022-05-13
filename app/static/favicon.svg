@@ -1,10 +1,29 @@
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 1000 1000" xml:space="preserve">
-  <path
-    fill="#FFFFFF"
-    d="M939.81 1008.26H60.19C27 1008.26 0 981.26 0 948.07V60.19C0 27 27 0 60.19 0h879.63C973 0 1000 27 1000 60.19v887.88c0 33.19-27 60.19-60.19 60.19zM60.19 47.47c-6.89 0-12.71 5.82-12.71 12.71v887.88c0 6.89 5.82 12.71 12.71 12.71h879.63c6.89 0 12.71-5.82 12.71-12.71V60.19c0-6.89-5.82-12.71-12.71-12.71H60.19z"
-  />
-  <path
-		fill="#FFFFFF"
-    d="M677.42 778.72c-5.75 0-10.39-4.74-10.28-10.49.3-14.98 1.29-26.96 2.95-35.95 2.04-10.19 5.91-20.17 11.61-29.95 7.33-12.63 22.41-26.69 45.22-42.17 18.45-12.03 30.98-22.88 37.58-32.55.21-.31.4-.62.58-.94 4.3-7.58 6.44-15.16 6.44-22.73 0-30.56-17.52-45.84-52.56-45.84-21.59 0-36.87 4.99-45.83 14.97-7.71 8.58-12.25 22.21-13.63 40.88-.4 5.37-4.85 9.54-10.24 9.54h-76.33c-5.85 0-10.49-4.89-10.27-10.74 1.57-42.38 14.86-74.86 39.88-97.43 27.09-24.45 66.92-36.67 119.48-36.67 46.85 0 83.93 10.19 111.23 30.56 27.3 20.37 40.95 48.48 40.95 84.34 0 40.74-20.98 75.98-62.95 105.72-24.44 18.34-38.91 30.76-43.39 37.28-5.08 6.77-8.05 17.64-8.91 32.58-.31 5.4-4.84 9.59-10.25 9.59h-71.28zm-13.08 87.92c0-26.2 21.24-47.43 47.43-47.43h2.21c26.2 0 47.43 21.24 47.43 47.43 0 26.2-21.24 47.43-47.43 47.43h-2.21c-26.19 0-47.43-21.23-47.43-47.43z"
-  />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
+  <defs>
+    <radialGradient id="a" cx="320.95" cy="338.45" fx="92.515" fy="266.266" r="372.55" gradientTransform="rotate(27.06 317.58 337.672)" gradientUnits="userSpaceOnUse">
+      <stop offset=".15" stop-color="#f8b166" stop-opacity=".6"/>
+      <stop offset=".22" stop-color="#f8b166" stop-opacity=".66"/>
+      <stop offset=".34" stop-color="#f8b166" stop-opacity=".74"/>
+      <stop offset=".47" stop-color="#f8b166" stop-opacity=".78"/>
+      <stop offset=".6" stop-color="#f8b166" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#e72a5b" stop-opacity=".6"/>
+    </radialGradient>
+    <radialGradient id="b" cx="367.35" cy="378.77" r="503.18" gradientTransform="rotate(27.06 386.512 383.425) scale(1 1.02)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e72a5b"/>
+      <stop offset=".04" stop-color="#e72a5a" stop-opacity=".91"/>
+      <stop offset=".12" stop-color="#e7295a" stop-opacity=".76"/>
+      <stop offset=".2" stop-color="#e72959" stop-opacity=".65"/>
+      <stop offset=".28" stop-color="#e72858" stop-opacity=".57"/>
+      <stop offset=".37" stop-color="#e72858" stop-opacity=".52"/>
+      <stop offset=".45" stop-color="#e72858" stop-opacity=".5"/>
+      <stop offset=".49" stop-color="#e72858" stop-opacity=".54"/>
+      <stop offset=".61" stop-color="#e72857" stop-opacity=".65"/>
+      <stop offset=".74" stop-color="#e72857" stop-opacity=".73"/>
+      <stop offset=".86" stop-color="#e72857" stop-opacity=".78"/>
+      <stop offset="1" stop-color="#e72857" stop-opacity=".8"/>
+    </radialGradient>
+  </defs>
+  <rect x="15" y="15" width="450" height="450" rx="80" fill="url(#a)"/>
+  <rect x="15" y="15" width="450" height="450" rx="80" fill="url(#b)"/>
+  <path d="M86.24 313.61 124.36 285c7.23 13.8 17.74 20.37 26.94 20.37 15.12 0 23.66-7.22 23.66-34.17V136.49h56.53v139.33c0 42.72-23 78.21-72.3 78.21-34.83-.03-57.19-13.15-72.95-40.42ZM339.87 187.75c0-11.83-8.55-16.43-18.4-16.43-11.18 0-18.41 5.91-27 13.8l-30.89-28.26c16.1-18.4 38.78-30.89 65.07-30.89 36.14 0 65.06 16.43 65.06 57.84 0 39.43-48 49.95-44.69 86.09h-49.24c-6.57-42.72 40.09-61.12 40.09-82.15Zm-48.64 132.1c0-19.06 13.81-34.17 32.86-34.17S357 300.79 357 319.85 343.15 354 324.09 354s-32.86-15.09-32.86-34.15Z" fill="#fff"/>
 </svg>

@@ -3,10 +3,6 @@ import * as styles from '@/styles/components/Pills.module.sass';
 import { useEffect, useState, memo } from 'react';
 import { TimerIcon } from './Icons';
 
-interface PropTypes {
-  current: number;
-}
-
 export default {
   TaskPill: ({ current }: PropTypes) => (
     <div className={styles.pillBody}>
@@ -38,3 +34,7 @@ export default {
     );
   })
 };
+
+interface PropTypes {
+  current: number;
+}

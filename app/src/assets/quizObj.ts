@@ -76,7 +76,7 @@ export default [
     answers: ['NaN', '0', 'SyntaxError', 'null']
   },
   {
-    question: 'typeof [] + "" - - "" + {a: 25} ** 25 ?? 0',
-    answers: ['NaN', "'number'", 'TypeError', 'Maybe on another day']
+    question: 'typeof ([] + "" - - "" + {} ** 25 ?? 0)',
+    answers: ['NaN', "'number'", 'null', 'I give up']
   }
 ];

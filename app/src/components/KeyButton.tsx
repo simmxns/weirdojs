@@ -55,7 +55,8 @@ const KeyButton: FunctionComponent<PropTypes> = function ({
   return (
     <div className={`${className ? className : ''}`}>
       <button
-        onClick={() => callback()}
+        onClick={callback}
+        onKeyPress={callback}
         onMouseDown={onMouseDownHandler}
         onMouseUp={onMouseUpHandler}
         className={styles.keyButtonWrapper}
