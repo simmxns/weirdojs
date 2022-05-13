@@ -1,7 +1,6 @@
-name: eslint/prettier fix on /api/
+name: Lint and Format api/**/*
 on:
   - push
-  - pull_request
 defaults:
   run:
     working-directory: ./api
