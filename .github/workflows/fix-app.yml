@@ -1,7 +1,6 @@
-name: eslint/prettier fix on /app/
+name: Lint and Format app/**/*
 on:
   - push
-  - pull_request
 defaults:
   run:
     working-directory: ./app
