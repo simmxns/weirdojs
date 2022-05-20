@@ -2,3 +2,9 @@
   base = "./app/"
   publish = "public"
   command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
