@@ -6,6 +6,7 @@ import { createRef, useEffect, useState } from 'react';
 import GlassLayout from '@/components/GlassLayout';
 import AnswerButton from '@/components/AnswerButton';
 import QuestionCode from '@/components/QuestionCode';
+import { Helmet } from 'react-helmet';
 
 const FinishGame = (index: number) => {
   if (index === 21) alert('the game has finished');
@@ -25,6 +26,13 @@ export default function QuizPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Weirdo.js | Quiz</title>
+        <meta
+          name="description"
+          content="Quiz page a quiz game"
+        />
+      </Helmet>
       <Header />
       <main className={styles.quizHero}>
         <section className={styles.questionBody}>

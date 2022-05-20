@@ -5,7 +5,9 @@
   "description": "weirdojs",
   "author": "@simmxns",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "quiz",
+    "javascript"
   ],
   "scripts": {
     "develop": "gatsby develop",
