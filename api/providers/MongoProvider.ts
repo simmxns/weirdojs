@@ -15,7 +15,7 @@ export default class MongoProvider {
         },
         authSource: Env.get('MONGODB_AUTH_SOURCE')
       })
-      .catch((e) => this.app.logger.error(`[ ${red('moongose')} ]: ${e}`));
+      .catch(e => this.app.logger.error(`[ ${red('moongose')} ]: ${e}`));
 
     this.app.container.singleton('Mongoose', () => mongoose);
   }

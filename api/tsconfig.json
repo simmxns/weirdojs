@@ -16,7 +16,7 @@
       "Contracts/*": ["./contracts/*"],
       "Database/*": ["./database/*"],
       "Controllers/*": ["app/Controllers/*"],
-      "Models/*": ["database/Models/*"],
+      "Models/*": ["app/Models/*"],
       "Schemas/*": ["app/Schemas/*"],
       "Helpers/*": ["app/Helpers/*"]
     },

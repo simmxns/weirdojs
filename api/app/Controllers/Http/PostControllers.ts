@@ -1,10 +1,10 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import { validator } from '@ioc:Adonis/Core/Validator';
-import Leaderboard from 'Database/Models/Leaderboard';
+import Leaderboard from 'Models/Leaderboard';
 import schema from 'Schemas/Leaderboard';
 
 export default class PostControllers {
-  async store({ request, response }: HttpContextContract) {
+  public async store({ request, response }: HttpContextContract) {
     const data = request.body();
 
     await validator

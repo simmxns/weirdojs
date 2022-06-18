@@ -26,7 +26,7 @@ const bodyParserConfig: BodyParserConfig = {
     limit: '1mb',
     convertEmptyStringsToNull: true,
     queryString: {},
-    types: [],
+    types: []
   },
   multipart: {
     encoding: 'utf-8',

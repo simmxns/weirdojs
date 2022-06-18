@@ -71,7 +71,7 @@ export const runnerHooks: Required<Pick<Config, 'setup' | 'teardown'>> = {
 | You can use this method to configure suites. For example: Only start
 | the HTTP server when it is a functional suite.
 */
-export const configureSuite: Config['configureSuite'] = (suite) => {
+export const configureSuite: Config['configureSuite'] = suite => {
   if (suite.name === 'functional') {
     suite.setup(() => TestUtils.httpServer().start());
   }

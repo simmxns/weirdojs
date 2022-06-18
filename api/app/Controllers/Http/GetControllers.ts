@@ -1,8 +1,8 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import Leaderboard from 'Database/Models/Leaderboard';
+import Leaderboard from 'Models/Leaderboard';
 
 export default class GetControllers {
-  async show({ response }: HttpContextContract) {
+  public async show({ response }: HttpContextContract) {
     const data = await Leaderboard.find({});
     response.ok(data);
   }

@@ -39,7 +39,7 @@ kernel
       ...processCliArgs(process.argv.slice(2)),
       ...config,
       ...{
-        importer: (filePath) => import(filePath),
+        importer: filePath => import(filePath),
         setup: app.concat(runnerHooks.setup),
         teardown: runnerHooks.teardown
       },
