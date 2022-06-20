@@ -1,24 +1,39 @@
-import { forwardRef } from 'react';
-import * as styles from '@/styles/components/AnswerButton.module.sass';
+import {
+  FunctionComponent,
+  KeyboardEventHandler,
+  MouseEventHandler
+} from 'react';
 import KeyButton from './KeyButton';
+import type { ControlKeys, GameKeys } from '@/types';
+import * as styles from '@/styles/components/AnswerButton.module.sass';
 
-const AnswerButton = forwardRef<HTMLParagraphElement, PropTypes>(
-  ({ keyType, callback, answer }, ref) => (
+const AnswerButton: FunctionComponent<PropTypes> = function ({
+  keyType,
+  callback,
+  answer
+}) {
+  return (
     <div className={styles.answerButton}>
       <KeyButton
         className={styles.absKeyButton}
         keyType={keyType}
         callback={callback}
+        answer={answer}
       />
-      <p ref={ref}>{answer}</p>
+      <p>{answer}</p>
     </div>
-  )
-)
+  );
+};
 
 export default AnswerButton;
 
 interface PropTypes {
   answer: string;
-  keyType: 'space' | 'esc' | 'right' | 'left' | 'q' | 'w' | 'e' | 'r';
-  callback: (e?: Event) => void;
+  keyType: GameKeys | ControlKeys;
+  callback: (
+    event?:
+      | MouseEventHandler<HTMLButtonElement>
+      | KeyboardEventHandler<HTMLButtonElement>
+      | unknown
+  ) => void;
 }

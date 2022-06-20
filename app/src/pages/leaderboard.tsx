@@ -1,7 +1,7 @@
+import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Leaderboard from '@/components/Leaderboard';
 import * as styles from '@/styles/layouts/leaderboard.module.sass';
-import { Helmet } from 'react-helmet';
 
 export default function LeaderboardPage() {
   return (

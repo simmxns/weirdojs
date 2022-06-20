@@ -6,8 +6,6 @@ import KeyButton from '@/components/KeyButton';
 import { navigate } from 'gatsby';
 
 export default function IndexPage() {
-  const openQuizPage = () => navigate('/quiz');
-
   return (
     <>
       <Helmet>
@@ -33,7 +31,7 @@ export default function IndexPage() {
               demonstrate you why <b>&quot;javascript is a weirdo&quot;</b>.
             </p>
             <div className={styles.startWrapper}>
-              <KeyButton keyType="space" callback={openQuizPage} />
+              <KeyButton keyType="space" callback={() => navigate('/quiz')} />
               <strong className={styles.startText}>to start the quiz</strong>
             </div>
           </section>

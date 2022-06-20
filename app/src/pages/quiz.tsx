@@ -1,47 +1,42 @@
+import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
-import * as styles from '@/styles/layouts/quiz.module.sass';
 import Pill from '@/components/Pills';
-import quizObj from '@/assets/quizObj';
-import { createRef, useEffect, useState } from 'react';
 import GlassLayout from '@/components/GlassLayout';
 import AnswerButton from '@/components/AnswerButton';
 import QuestionCode from '@/components/QuestionCode';
-import { Helmet } from 'react-helmet';
-
-const FinishGame = (index: number) => {
-  if (index === 21) alert('the game has finished');
-};
+import { useQuiz } from '@/hooks/useQuiz';
+import quizObj from '@/assets/quiz.json';
+import keyResolver from '@/assets/keys.json';
+import type { ControlKeys, GameKeys } from '@/types';
+import * as styles from '@/styles/layouts/quiz.module.sass';
 
 export default function QuizPage() {
-  const [index, setIndex] = useState(1);
-  const ref = createRef<HTMLParagraphElement>()
+  const { resetCollection, finishGame, index, increase } = useQuiz();
 
-  const callbackHandler = () => {
-    setIndex(index + 1);
-    console.log(ref.current)
-  };
+  const callbackHandler = () => increase();
+
+  finishGame();
 
   useEffect(() => {
-  });
+    resetCollection();
+  }, []);
 
   return (
     <>
       <Helmet>
         <title>Weirdo.js | Quiz</title>
-        <meta
-          name="description"
-          content="Quiz page a quiz game"
-        />
+        <meta name="description" content="Quiz page a quiz game" />
       </Helmet>
       <Header />
       <main className={styles.quizHero}>
         <section className={styles.questionBody}>
           <div className={styles.pillWrapper}>
-            <Pill.TaskPill current={index} />
+            <Pill.TaskPill current={index + 1} />
             <Pill.TimerPill />
           </div>
           <div className={styles.questionsWrapper}>
-            <QuestionCode snippet={quizObj[index].question} />
+            <QuestionCode snippet={quizObj[index]?.question} />
           </div>
         </section>
         <section className={styles.answersBody}>
@@ -49,30 +44,16 @@ export default function QuizPage() {
             <div className={styles.answersGlass}>
               <h6 className={styles.answersTitle}>Select an anwser</h6>
               <div className={styles.answersButtons}>
-                <AnswerButton
-                  ref={ref}
-                  answer={quizObj[index].answers[0]}
-                  keyType="q"
-                  callback={callbackHandler}
-                />
-                <AnswerButton
-                  ref={ref}
-                  answer={quizObj[index].answers[1]}
-                  keyType="w"
-                  callback={callbackHandler}
-                />
-                <AnswerButton
-                  ref={ref}
-                  answer={quizObj[index].answers[2]}
-                  keyType="e"
-                  callback={callbackHandler}
-                />
-                <AnswerButton
-                  ref={ref}
-                  answer={quizObj[index].answers[3]}
-                  keyType="r"
-                  callback={callbackHandler}
-                />
+                {quizObj[index]?.answers.map((answer, i) => {
+                  return (
+                    <AnswerButton
+                      key={i}
+                      answer={answer}
+                      keyType={keyResolver[i] as GameKeys | ControlKeys}
+                      callback={callbackHandler}
+                    />
+                  );
+                })}
               </div>
             </div>
           </GlassLayout>

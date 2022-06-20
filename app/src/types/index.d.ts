@@ -14,3 +14,11 @@ export interface QuizData {
   question: string;
   answers: string[];
 }
+
+export type QuizCtx<T> = {
+  answers: T;
+  setAnswers: Dispatch<SetStateAction<T>>;
+};
+
+export type GameKeys = 'q' | 'w' | 'e' | 'r';
+export type ControlKeys = 'space' | 'esc' | 'right' | 'left';

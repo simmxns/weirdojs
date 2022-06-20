@@ -13,8 +13,6 @@ interface PropTypes {
 
 const StatsPanel: FunctionComponent<PropTypes> = function ({
   playerName,
-  position,
-  correct,
   time,
   score
 }) {

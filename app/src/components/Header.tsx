@@ -1,7 +1,7 @@
-import { FunctionComponent, ReactElement } from 'react';
-import * as styles from '@/styles/components/Header.module.sass';
-import { Logo, GithubIcon, TranslateIcon } from './Icons';
 import { Link } from 'gatsby';
+import { FunctionComponent } from 'react';
+import { Logo, GithubIcon, TranslateIcon } from './Icons';
+import * as styles from '@/styles/components/Header.module.sass';
 
 const Header: FunctionComponent<PropTypes> = function ({ view }) {
   return (
