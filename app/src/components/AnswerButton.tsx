@@ -10,12 +10,14 @@ import * as styles from '@/styles/components/AnswerButton.module.sass';
 const AnswerButton: FunctionComponent<PropTypes> = function ({
   keyType,
   callback,
-  answer
+  answer,
+  stop
 }) {
   return (
     <div className={styles.answerButton}>
       <KeyButton
         className={styles.absKeyButton}
+        stop={stop}
         keyType={keyType}
         callback={callback}
         answer={answer}
@@ -36,4 +38,5 @@ interface PropTypes {
       | KeyboardEventHandler<HTMLButtonElement>
       | unknown
   ) => void;
+  stop: boolean;
 }

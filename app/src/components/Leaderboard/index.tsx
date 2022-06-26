@@ -1,12 +1,13 @@
-import { sortPlayersByScore } from '@/helpers/sortByScore';
-import { usePaginator } from '@/hooks/usePaginator';
-import { getPlayers } from '@/services/getPlayers';
-import * as styles from '@/styles/components/Leaderboard.module.sass';
-import { Players } from '@/types';
-import { ReactElement, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import KeyButton from '../KeyButton';
 import LongCard from './LongCard';
 import LongCardLoading from './LongCardLoading';
+import { sortPlayersByScore } from '@/helpers/sortByScore';
+import { usePaginator } from '@/hooks/usePaginator';
+import { getPlayers } from '@/services/getPlayers';
+import type { ReactElement } from 'react';
+import type { Players } from '@/types';
+import * as styles from '@/styles/components/Leaderboard.module.sass';
 
 export default function Leaderboard(): ReactElement {
   const [isLoading, setIsLoading] = useState(true);

@@ -1,4 +1,5 @@
 import { API_URL } from '@env';
 import fetch from 'node-fetch';
 
-export const getPlayers = () => fetch(API_URL).then(res => res.json());
+export const getPlayers = () =>
+  fetch(API_URL).then(response => response.json());

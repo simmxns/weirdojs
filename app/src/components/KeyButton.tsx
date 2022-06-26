@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useQuiz } from '@/hooks/useQuiz';
 import type {
   FunctionComponent,
@@ -12,33 +12,50 @@ const KeyButton: FunctionComponent<PropTypes> = function ({
   keyType,
   callback,
   answer,
-  className
+  className,
+  stop
 }) {
   const { collectAnswers } = useQuiz();
   const [active, setActive] = useState(false);
   const [isSquare, setIsSquare] = useState(false);
   const rgxGameKeys = /\b(q|w|e|r)\b/;
-  const rgxEscSpaceKeys = /\b(space|esc)\b/;
+  const rgxEscSpaceKeys = useMemo(() => /\b(space|esc)\b/, []);
 
-  const keyUp = (evt: any) => {
-    if (evt.code === allKeys[keyType]) {
-      setActive(false);
-      callback(evt);
-    }
+  const keyUp = useCallback(
+    (evt: any) => {
+      if (stop) return;
 
-    if (evt.code === PropsResolver.gameKeys[keyType as GameKeys]) {
-      collectAnswers(answer as string);
-    }
+      if (evt.code === allKeys[keyType]) {
+        setActive(false);
+        callback(evt);
+      }
+
+      if (evt.code === PropsResolver.gameKeys[keyType as GameKeys]) {
+        collectAnswers(answer as string);
+      }
+    },
+    [answer, stop, keyType, callback, collectAnswers]
+  );
+
+  const keyDown = useCallback(
+    (evt: any) => {
+      if (stop) return;
+
+      if (evt.code === allKeys[keyType]) {
+        setActive(true);
+      }
+    },
+    [stop, keyType]
+  );
+
+  const onMouseDownHandler = () => {
+    if (stop) return;
+    setActive(true);
   };
 
-  const keyDown = (evt: any) => {
-    if (evt.code === allKeys[keyType]) {
-      setActive(true);
-    }
-  };
-
-  const onMouseDownHandler = () => setActive(true);
   const onMouseUpHandler = (evt: any) => {
+    if (stop) return;
+
     if (keyType.match(rgxGameKeys) !== null) {
       collectAnswers(answer as string);
     }
@@ -57,7 +74,7 @@ const KeyButton: FunctionComponent<PropTypes> = function ({
       document.removeEventListener('keydown', keyDown);
       document.removeEventListener('keyup', keyUp);
     };
-  }, [keyDown, keyUp]);
+  }, [isSquare, keyType, keyDown, rgxEscSpaceKeys, keyUp]);
 
   return (
     <div className={`${className ? className : ''}`}>
@@ -94,18 +111,6 @@ const KeyButton: FunctionComponent<PropTypes> = function ({
 
 export default KeyButton;
 
-interface PropTypes {
-  keyType: GameKeys | ControlKeys;
-  callback: (
-    event?:
-      | MouseEventHandler<HTMLButtonElement>
-      | KeyboardEventHandler<HTMLButtonElement>
-      | unknown
-  ) => void;
-  answer?: string;
-  className?: string;
-}
-
 const PropsResolver = {
   charKey: {
     space: 'space',
@@ -135,3 +140,16 @@ const allKeys = {
   ...PropsResolver.contorlKeys,
   ...PropsResolver.gameKeys
 };
+
+interface PropTypes {
+  keyType: GameKeys | ControlKeys;
+  callback: (
+    event?:
+      | MouseEventHandler<HTMLButtonElement>
+      | KeyboardEventHandler<HTMLButtonElement>
+      | unknown
+  ) => void;
+  stop?: boolean;
+  answer?: string;
+  className?: string;
+}

@@ -1,26 +1,36 @@
 import { createContext, useMemo, useState } from 'react';
 import type { FunctionComponent } from 'react';
-import type { QuizCtx } from '@/types';
+import type { QuizCtx, QuizState } from '@/types';
 
-const QuizContext = createContext<QuizCtx<string[]>>({
-  answers: [],
-  setAnswers: () => []
+const QuizContext = createContext<QuizCtx>({
+  quizState: {
+    answers: [],
+    corrects: 0,
+    incorrects: 0,
+    points: 0,
+    time: ''
+  },
+  setQuizState: () => {}
 });
 
-const QuizProvider: FunctionComponent = function (props) {
-  const [answers, setAnswers] = useState<string[]>([]);
+const QuizProvider: FunctionComponent = function ({ children }) {
+  const [quizState, setQuizState] = useState<QuizState>({
+    answers: [],
+    corrects: 0,
+    incorrects: 0,
+    points: 0,
+    time: ''
+  });
 
   const value = useMemo(
     () => ({
-      answers,
-      setAnswers
+      quizState,
+      setQuizState
     }),
-    [answers]
+    [quizState]
   );
 
-  return (
-    <QuizContext.Provider value={value}>{props.children}</QuizContext.Provider>
-  );
+  return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;
 };
 
 export { QuizProvider as default, QuizContext };

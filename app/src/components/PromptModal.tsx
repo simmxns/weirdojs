@@ -1,14 +1,17 @@
-import { FormEvent, ReactElement } from 'react';
-import * as styles from '@/styles/components/PromptModal.module.sass';
+import { FormEvent, FunctionComponent } from 'react';
 import { EditIcon } from './Icons';
+import * as styles from '@/styles/components/PromptModal.module.sass';
 
-export default function PromptModal(): ReactElement {
+const PromptModal: FunctionComponent<PropTypes> = function ({
+  placeholder,
+  show
+}) {
   const onSubmitHandler = (evt: FormEvent) => {
     evt.preventDefault();
   };
 
   return (
-    <div className={styles.modalBody}>
+    <div className={`${styles.modalBody} ${show ? styles.modalShow : ''}`}>
       <div className={styles.modalCardBody}>
         <form onSubmit={onSubmitHandler}>
           <div className={styles.modalIcon}>
@@ -17,13 +20,12 @@ export default function PromptModal(): ReactElement {
           <div>
             <h4 className={styles.modalCardTitle}>Enter your name</h4>
             <p className={styles.modalCardText}>
-              Enter your name for join to the ranking, you can skip it to be
-              anonymous
+              For join to the ranking. You can skip it to be anonymous
             </p>
           </div>
           <input
             type="text"
-            placeholder="Anonymous#3"
+            placeholder={placeholder}
             className={styles.modalInputText}
           />
           <input
@@ -35,4 +37,11 @@ export default function PromptModal(): ReactElement {
       </div>
     </div>
   );
+};
+
+export default PromptModal;
+
+interface PropTypes {
+  placeholder: string;
+  show: boolean;
 }

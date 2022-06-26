@@ -1,13 +1,12 @@
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 import * as styles from '@/styles/components/Leaderboard.module.sass';
-import { minizeTime } from '@/helpers/minizeTime';
 
 interface PropTypes {
   country: string;
   playerName: string;
   stats: {
-    time: [number, number, number];
-    correct: number;
+    time: string;
+    corrects: number;
     points: number;
   };
   position: number;
@@ -32,8 +31,8 @@ const LongCard: FunctionComponent<PropTypes> = function ({
       </div>
       <div className={styles.rightSideWrapper}>
         <div className={styles.timeCorrectWrapper}>
-          <p>{minizeTime(stats.time)}</p>
-          <p>{stats.correct}/20</p>
+          <p>{stats.time}</p>
+          <p>{stats.corrects}/20</p>
         </div>
         <h6>{stats.points}</h6>
       </div>
