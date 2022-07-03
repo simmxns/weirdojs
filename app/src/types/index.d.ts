@@ -19,6 +19,8 @@ export type Players = RequestState & {
 };
 
 export interface QuizState {
+  name: string;
+  country: string;
   answers: string[];
   corrects: number;
   incorrects: number;

@@ -4,6 +4,8 @@ import type { QuizCtx, QuizState } from '@/types';
 
 const QuizContext = createContext<QuizCtx>({
   quizState: {
+    name: '',
+    country: '',
     answers: [],
     corrects: 0,
     incorrects: 0,
@@ -15,6 +17,8 @@ const QuizContext = createContext<QuizCtx>({
 
 const QuizProvider: FunctionComponent = function ({ children }) {
   const [quizState, setQuizState] = useState<QuizState>({
+    name: '',
+    country: '',
     answers: [],
     corrects: 0,
     incorrects: 0,

@@ -5,7 +5,7 @@ import * as styles from '@/styles/components/Badges.module.sass';
 import { useQuiz } from '@/hooks/useQuiz';
 
 const TaskBadge = ({ current }: TaskPropTypes) => (
-  <div className={styles.pillBody}>
+  <div className={styles.badgeBody}>
     <p className={styles.taskText}>{current} / 20</p>
   </div>
 );
@@ -39,7 +39,7 @@ const TimerBadge = memo(({ stop }: TimerPropTypes) => {
   }, [seconds, minutes]);
 
   return (
-    <div className={styles.pillBody}>
+    <div className={styles.badgeBody}>
       <p className={styles.timerText}>{currentTime}</p>
       <TimerIcon />
     </div>

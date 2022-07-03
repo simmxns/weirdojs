@@ -1,3 +1,8 @@
-export function minizeTime(time: [number, number, number]): string {
-  return `${time[0] > 0 ? time[0] + 'º' : ''} ${time[1]}' ${time[2]}"`;
+import { parseTime } from './parseTime';
+
+export function minizeTime(time: string): string {
+  const { hours, minutes, seconds } = parseTime(time);
+  const hour = `${hours > 0 ? hours + 'º' : ''}`;
+
+  return `${hour} ${minutes}' ${seconds}"`;
 }

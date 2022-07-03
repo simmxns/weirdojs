@@ -3,6 +3,7 @@ import { QuizContext } from '@/context/QuizContext';
 import { similars } from '@/helpers/similars';
 import correctsJSON from '@/assets/corrects.json';
 import { calcScore } from '@/helpers/calcScore';
+import { getCountryCode } from '@/services/getCountryCode';
 
 export const useQuiz = function () {
   const ctx = useContext(QuizContext);
@@ -16,7 +17,7 @@ export const useQuiz = function () {
     throw new Error('The context must be used inside a Context.Provider');
   }
 
-  const collectAnswers = (answer: string): void => {
+  const collectAnswers = (answer: string) => {
     if (answer.length <= TOTAL_QUESTION) {
       setQuizState({
         ...quizState,
@@ -32,8 +33,24 @@ export const useQuiz = function () {
     });
   };
 
-  const resetGame = (): void => {
-    setQuizState([]);
+  const collectName = async (name: string) => {
+    setQuizState({
+      ...quizState,
+      name
+    });
+  };
+
+  const resetGame = () => {
+    setFinished(false);
+    setQuizState({
+      name: '',
+      country: '',
+      answers: [],
+      corrects: 0,
+      incorrects: 0,
+      points: 0,
+      time: ''
+    });
   };
 
   const nextQuestion = () => {
@@ -47,7 +64,7 @@ export const useQuiz = function () {
     );
   };
 
-  const finishGame = useCallback(() => {
+  const finishGame = useCallback(async () => {
     if (answers.length === TOTAL_QUESTION + 1) {
       const sessionCorrects = JSON.parse(
         window.atob(sessionStorage.getItem('corrects') ?? '')
@@ -59,7 +76,8 @@ export const useQuiz = function () {
         ...quizState,
         corrects: corrects.length,
         incorrects: answers.length - corrects.length,
-        points: score
+        points: score,
+        country: await getCountryCode()
       });
 
       setFinished(true);
@@ -70,12 +88,13 @@ export const useQuiz = function () {
   return {
     collectAnswers,
     nextQuestion,
+    ...quizState,
+    collectName,
     collectTime,
     finishGame,
     startGame,
     resetGame,
     finished,
-    answers,
     current
   };
 };

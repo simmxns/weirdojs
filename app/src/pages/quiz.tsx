@@ -13,15 +13,17 @@ import type { ControlKeys, GameKeys } from '@/types';
 import * as styles from '@/styles/layouts/quiz.module.sass';
 
 export default function QuizPage() {
-  const { resetGame, finishGame, startGame, finished, current, nextQuestion } =
-    useQuiz();
+  const { finishGame, startGame, finished, current, nextQuestion } = useQuiz();
 
   const callbackHandler = () => nextQuestion();
-  useEffect(finishGame, [finishGame]);
+
+  useEffect(() => {
+    finishGame();
+  }, [finishGame]);
+
   useEffect(() => {
     startGame();
-    () => resetGame();
-  }, [resetGame, startGame]);
+  }, []);
 
   return (
     <>
@@ -32,7 +34,7 @@ export default function QuizPage() {
       <Header />
       <main className={styles.quizHero}>
         <section className={styles.questionBody}>
-          <div className={styles.pillWrapper}>
+          <div className={styles.badgeWrapper}>
             <Badges.TaskBadge current={current + 1} />
             <Badges.TimerBadge stop={finished} />
           </div>

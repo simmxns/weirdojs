@@ -4,8 +4,16 @@ import { Helmet } from 'react-helmet';
 import * as styles from '@/styles/layouts/index.module.sass';
 import KeyButton from '@/components/KeyButton';
 import { navigate } from 'gatsby';
+import { useQuiz } from '@/hooks/useQuiz';
 
 export default function IndexPage() {
+  const { resetGame } = useQuiz();
+
+  const callbackHandler = () => {
+    resetGame();
+    navigate('/quiz');
+  };
+
   return (
     <>
       <Helmet>
@@ -31,7 +39,7 @@ export default function IndexPage() {
               demonstrate you why <b>&quot;javascript is a weirdo&quot;</b>.
             </p>
             <div className={styles.startWrapper}>
-              <KeyButton keyType="space" callback={() => navigate('/quiz')} />
+              <KeyButton keyType="space" callback={callbackHandler} />
               <strong className={styles.startText}>to start the quiz</strong>
             </div>
           </section>

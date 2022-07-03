@@ -1,5 +1,7 @@
 @use '../core' as core
 
+$-circle-size: 23rem
+
 .statsPanelBody
   @include core.layout-flex(center, center)
   position: absolute
@@ -40,10 +42,8 @@
 
 .statsWrapper
   @include core.layout-grid(center, center, column)
-  column-gap: 160px
+  column-gap: 12px
   margin-top: 45px
-
-$-circle-size: 13rem
 
 .statsCircleWrapper
   width: $-circle-size
@@ -53,13 +53,9 @@ $-circle-size: 13rem
 /* CirclePercent.tsx
 .canvasWrapper
   position: relative
-  width: $-circle-size
-  height: $-circle-size
 
 .canvasCircle
-  width: inherit
-  height: inherit
-  border: 1px solid core.$white
+  width: $-circle-size
   border-radius: 100%
 
 .strokePercent
