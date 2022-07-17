@@ -1,6 +1,7 @@
 export interface RequestState {
   name: string | unknown;
   country: string | unknown;
+  createdAt: Date | unknown;
   stats: {
     corrects: number | unknown;
     time: string | unknown;
@@ -8,14 +9,8 @@ export interface RequestState {
   };
 }
 
-export interface RequestAction {
-  type: 'GET_TIME' | 'GET_CORRECTS' | 'GET_NAME' | 'GET_COUNTRY' | 'SET_POINTS';
-  payload: unknown;
-}
-
-export type Players = RequestState & {
-  _id: string;
-  position: number;
+export type Player = RequestState & {
+  _id?: string;
 };
 
 export interface QuizState {
@@ -26,6 +21,8 @@ export interface QuizState {
   incorrects: number;
   points: number;
   time: string;
+  position: number;
+  createdAt: Date
 }
 
 export interface QuizCtx {

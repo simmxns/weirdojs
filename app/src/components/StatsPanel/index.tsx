@@ -1,8 +1,9 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 import * as styles from '@/styles/components/StatsPanel.module.sass';
 import { minizeTime } from '@/helpers/minizeTime';
 import CirclePercent from './CirclePercent';
 import { parseTime } from '@/helpers/parseTime';
+import KeyButton from '../KeyButton';
 
 interface PropTypes {
   playerName: string;
@@ -20,18 +21,21 @@ const StatsPanel: FunctionComponent<PropTypes> = function ({
   position
 }) {
   const { hours, seconds, minutes } = parseTime(time);
+  const [panelUp, setPanelUp] = useState(false);
 
   return (
-    <div className={styles.statsPanelBody}>
+    <div
+      className={`${styles.statsPanelBody} ${panelUp ? styles.panelUp : ''}`}
+    >
       <div className={styles.statsPanelWrapper}>
         <h3 className={styles.statsPanelCongrats}>
           <strong>Congratulations</strong>, {playerName} 🎉
         </h3>
         <div className={styles.statsWrapper}>
           <div className={styles.statsCircleWrapper}>
-            <CirclePercent content={`${position}º`} limit={5} />
+            <CirclePercent content={`#${position}`} limit={5} />
             <p className={styles.statsSubtitle}>
-              From <b>25</b> players you reach the <b>{position}º</b> position
+              From <b>25</b> players you reach the position <b>#{position}</b>
             </p>
           </div>
           <div className={styles.statsCircleWrapper}>
@@ -56,6 +60,15 @@ const StatsPanel: FunctionComponent<PropTypes> = function ({
           <p className={styles.scoreSubtitle}>
             To reach a total of <b>{score}</b> points
           </p>
+        </div>
+        <div className={styles.escButtonBody}>
+          press
+          <KeyButton
+            callback={() => setPanelUp(true)}
+            keyType="esc"
+            className={styles.escButton}
+          />
+          to continue
         </div>
       </div>
     </div>

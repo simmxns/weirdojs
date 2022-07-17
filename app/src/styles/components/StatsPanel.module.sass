@@ -5,13 +5,21 @@ $-circle-size: 23rem
 .statsPanelBody
   @include core.layout-flex(center, center)
   position: absolute
-  top: 0
+  top: -100%
   left: 0
   width: 100%
   height: 100%
   background-color: #404040
   font-family: 'Helvetica'
 
+.panelDown
+  top: 0
+  transition: top 1000ms ease
+
+.panelUp
+  top: -100%
+  transition: top 1000ms ease
+  
 .statsPanelWrapper
   @include core.layout-flex(center, center)
   flex-direction: column
@@ -49,6 +57,17 @@ $-circle-size: 23rem
   width: $-circle-size
   @include core.layout-flex(center, center)
   flex-direction: column
+
+.escButtonBody
+  display: flex
+  align-items: center
+  color: core.$white
+  font-weight: 800
+  margin: 45px 0 0 auto
+
+.escButton
+  margin-right: 8px
+  margin-left: 12px
 
 /* CirclePercent.tsx
 .canvasWrapper

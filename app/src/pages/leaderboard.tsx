@@ -6,12 +6,7 @@ import StatsPanel from '@/components/StatsPanel';
 import { useQuiz } from '@/hooks/useQuiz';
 
 export default function LeaderboardPage() {
-  const {
-    corrects: correct,
-    name: playerName,
-    time,
-    points: score
-  } = useQuiz();
+  const { currentPlayer } = useQuiz();
 
   return (
     <>
@@ -29,11 +24,11 @@ export default function LeaderboardPage() {
           <Leaderboard />
         </div>
         <StatsPanel
-          correct={correct}
-          playerName={playerName}
-          position={2}
-          score={score}
-          time={time}
+          correct={currentPlayer.corrects}
+          playerName={currentPlayer.name}
+          position={currentPlayer.position}
+          score={currentPlayer.points}
+          time={currentPlayer.time}
         />
       </main>
     </>

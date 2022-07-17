@@ -10,7 +10,8 @@ const QuizContext = createContext<QuizCtx>({
     corrects: 0,
     incorrects: 0,
     points: 0,
-    time: ''
+    time: '',
+    position: 0
   },
   setQuizState: () => {}
 });
@@ -23,7 +24,8 @@ const QuizProvider: FunctionComponent = function ({ children }) {
     corrects: 0,
     incorrects: 0,
     points: 0,
-    time: ''
+    time: '',
+    position: 0
   });
 
   const value = useMemo(

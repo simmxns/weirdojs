@@ -1,9 +1,9 @@
 import { useRef } from 'react';
+import { navigate } from 'gatsby';
 import { EditIcon } from './Icons';
 import { useQuiz } from '@/hooks/useQuiz';
 import type { FormEvent, FunctionComponent } from 'react';
 import * as styles from '@/styles/components/PromptModal.module.sass';
-import { navigate } from 'gatsby';
 
 const PromptModal: FunctionComponent<PropTypes> = function ({
   placeholder,

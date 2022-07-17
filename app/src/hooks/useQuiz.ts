@@ -4,6 +4,9 @@ import { similars } from '@/helpers/similars';
 import correctsJSON from '@/assets/corrects.json';
 import { calcScore } from '@/helpers/calcScore';
 import { getCountryCode } from '@/services/getCountryCode';
+import { getPlayers } from '@/services/getPlayers';
+import { parseQuizState } from '@/helpers/parseQuizState';
+import type { Player } from '@/types';
 
 export const useQuiz = function () {
   const ctx = useContext(QuizContext);
@@ -40,6 +43,20 @@ export const useQuiz = function () {
     });
   };
 
+  const getPlayerPosition = async (playerToFind: Player) => {
+    const players: Player[] = await getPlayers();
+    const { name: toFindName, stats: toFindStats } = playerToFind;
+
+    return players.findIndex(
+      ({ name, stats, createdAt }) =>
+        name == toFindName && stats.points == toFindStats.points && Date.now() === createdAt
+    );
+  };
+
+  const nextQuestion = () => {
+    if (current < TOTAL_QUESTION) setCurrent(current + 1);
+  };
+
   const resetGame = () => {
     setFinished(false);
     setQuizState({
@@ -51,10 +68,6 @@ export const useQuiz = function () {
       points: 0,
       time: ''
     });
-  };
-
-  const nextQuestion = () => {
-    if (current < TOTAL_QUESTION) setCurrent(current + 1);
   };
 
   const startGame = () => {
@@ -71,13 +84,15 @@ export const useQuiz = function () {
       );
       const corrects = similars(answers, sessionCorrects);
       const score = calcScore(time, corrects.length, incorrects);
+      const currentPlayer = parseQuizState(quizState);
 
       setQuizState({
         ...quizState,
         corrects: corrects.length,
         incorrects: answers.length - corrects.length,
         points: score,
-        country: await getCountryCode()
+        country: await getCountryCode(),
+        position: await getPlayerPosition(currentPlayer)
       });
 
       setFinished(true);
@@ -86,9 +101,9 @@ export const useQuiz = function () {
   }, [answers]);
 
   return {
+    currentPlayer: quizState,
     collectAnswers,
     nextQuestion,
-    ...quizState,
     collectName,
     collectTime,
     finishGame,

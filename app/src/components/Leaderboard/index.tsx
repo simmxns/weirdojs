@@ -6,13 +6,13 @@ import { sortPlayersByScore } from '@/helpers/sortByScore';
 import { usePaginator } from '@/hooks/usePaginator';
 import { getPlayers } from '@/services/getPlayers';
 import type { ReactElement } from 'react';
-import type { Players } from '@/types';
+import type { Player } from '@/types';
 import * as styles from '@/styles/components/Leaderboard.module.sass';
 
 export default function Leaderboard(): ReactElement {
   const [isLoading, setIsLoading] = useState(true);
-  const [players, setPlayers] = useState<Players[]>([]);
-  const { increase, decrease, paginated } = usePaginator<Players>(players, 6);
+  const [players, setPlayers] = useState<Player[]>([]);
+  const { increase, decrease, paginated } = usePaginator<Player>(players, 6);
 
   useEffect(() => {
     getPlayers()
